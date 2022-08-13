@@ -1,9 +1,12 @@
 use crate::Reader;
 use crate::Output;
+use crate::Terminal;
+use crate::CleanUp;
 use crate::prompt;
 use crossterm::event::*;
 // use crossterm::terminal::ClearType;
-// use crossterm::{cursor, event, execute, queue, style, terminal};
+use crossterm::{terminal, execute};
+use std::io::{stdout};
 // use std::cmp::Ordering;
 // use std::io::{stdout, ErrorKind, Write};
 // use std::path::PathBuf;
@@ -29,7 +32,7 @@ impl Editor {
     pub fn process_keypress(&mut self) -> crossterm::Result<bool> {
         match self.reader.read_key()? {
             KeyEvent {
-                code: KeyCode::Char('d'),
+                code: KeyCode::Char('q'),
                 modifiers: KeyModifiers::CONTROL,
                 ..
             } => {
@@ -112,6 +115,15 @@ impl Editor {
                 self.output.delete_char()
             }
             KeyEvent {
+                code: KeyCode::Char('n'),
+                modifiers: KeyModifiers::CONTROL,
+                ..
+            } => {
+                execute!(stdout(), terminal::EnterAlternateScreen)?;
+                Terminal::init()?;
+                terminal::enable_raw_mode()?;
+            }
+            KeyEvent {
                 code: KeyCode::Enter,
                 modifiers: KeyModifiers::NONE,
                 ..
@@ -125,6 +137,7 @@ impl Editor {
                 KeyCode::Char(ch) => ch,
                 _ => unreachable!(),
             }),
+            
             _ => {}
         }
         self.quit_times = QUIT_TIMES;
