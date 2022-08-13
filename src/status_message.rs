@@ -1,12 +1,4 @@
-use crossterm::event::*;
-use crossterm::terminal::ClearType;
-use crossterm::{cursor, event, execute, queue, style, terminal};
-use std::cmp::Ordering;
-use std::io::{stdout, ErrorKind, Write};
-use std::path::PathBuf;
 use std::time::{Duration, Instant};
-use std::{cmp, env, fs, io};
-
 pub struct StatusMessage {
     pub message: Option<String>,
     pub set_time: Option<Instant>,

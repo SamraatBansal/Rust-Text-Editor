@@ -1,11 +1,5 @@
-use crossterm::event::*;
-use crossterm::terminal::ClearType;
-use crossterm::{cursor, event, execute, queue, style, terminal};
-use std::cmp::Ordering;
-use std::io::{stdout, ErrorKind, Write};
-use std::path::PathBuf;
-use std::time::{Duration, Instant};
-use std::{cmp, env, fs, io};
+use std::io::{stdout};
+use std::{io};
 
 pub struct EditorContents {
     pub content: String,

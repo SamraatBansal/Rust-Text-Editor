@@ -1,9 +1,4 @@
-use crossterm::event::*;
-use crossterm::terminal::ClearType;
-use crossterm::{cursor, event, execute, queue, style, terminal};
-const VERSION: &str = "0.0.1";
-const TAB_STOP: usize = 8;
-const QUIT_TIMES: u8 = 3;
+use crossterm::{terminal};
 
 mod editor;
 mod output;
