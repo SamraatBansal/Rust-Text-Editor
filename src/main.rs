@@ -19,5 +19,5 @@ pub use status_message::StatusMessage;
 use terminal::{Terminal, CleanUp};
 
 pub fn main() -> crossterm::Result<()>{
-    Terminal::init()
+    Terminal::init()                    /*Initliazing Call to Terminal Instance*/
 }

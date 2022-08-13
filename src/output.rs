@@ -64,7 +64,7 @@ impl Output {
         if self.cursor_controller.cursor_x > 0 {
             row.delete_char(self.cursor_controller.cursor_x - 1);
             self.cursor_controller.cursor_x -= 1;
-        } else {
+        } else {                    /*Case : Backspace to shift to prev line*/
             let previous_row_content = self
                 .editor_rows
                 .get_row(self.cursor_controller.cursor_y - 1);

@@ -15,6 +15,7 @@ pub struct Editor {
 }
 
 impl Editor {
+    /*Initializing Editor*/
     pub fn new() -> Self {
         Self {
             reader: Reader,
@@ -23,6 +24,7 @@ impl Editor {
         }
     }
 
+    /*All the Key events recoginition using Reader*/
     pub fn process_keypress(&mut self) -> crossterm::Result<bool> {
         match self.reader.read_key()? {
             KeyEvent {

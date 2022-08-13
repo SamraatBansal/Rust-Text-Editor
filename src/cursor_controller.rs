@@ -62,7 +62,7 @@ impl CursorController {
 
         match direction {
             KeyCode::Up => {
-                self.cursor_y = self.cursor_y.saturating_sub(1);
+                self.cursor_y = self.cursor_y.saturating_sub(1); /*Checked Subtraction to prevent out of bound*/
             }
             KeyCode::Left => {
                 if self.cursor_x != 0 {
