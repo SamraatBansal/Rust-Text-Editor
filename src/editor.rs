@@ -1,16 +1,10 @@
 use crate::Reader;
 use crate::Output;
 use crate::Terminal;
-use crate::CleanUp;
 use crate::prompt;
 use crossterm::event::*;
-// use crossterm::terminal::ClearType;
 use crossterm::{terminal, execute};
 use std::io::{stdout};
-// use std::cmp::Ordering;
-// use std::io::{stdout, ErrorKind, Write};
-// use std::path::PathBuf;
-// use std::time::{Duration, Instant};
 use std::cmp;
 const QUIT_TIMES: u8 = 3;
 
